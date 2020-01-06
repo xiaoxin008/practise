@@ -44,7 +44,7 @@ public class WordCounter {
     }
 
     public static void main(String[] args) {
-        final String SENTENCE = " Nel mezzo del cammin di nostra vita mi ritrovai in una selva oscura ché la dritta via era smarrita xxxx ";
+        final String SENTENCE = " Nel mezzo del cammin di nostra vita mi ritrovai inuna selva oscura ché la dritta via era smarrita xxxx ";
         Stream<Character> characterStream = IntStream.rangeClosed(0, SENTENCE.length()-1).mapToObj(SENTENCE::charAt);
         //因为原始的String在任意位置拆分，所以有时一个词会被分为两个词，然后数了两次。这就说明，拆分流会影响结果，而把顺序流换成并行流就可能使结果出错
         //所以我们要自定义拆分器只在词尾进行拆分 然后再并行执行

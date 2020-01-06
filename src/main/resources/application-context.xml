@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="shop" class="com.xiaoxin008.spring.bean.common.Shop">
+       <lookup-method bean="peach" name="getPeach"/>
+    </bean>
+
+    <bean id="apple" class="com.xiaoxin008.spring.bean.common.Apple" scope="prototype">
+
+    </bean>
+
+    <bean id="peach" class="com.xiaoxin008.spring.bean.common.Peach" scope="prototype">
+        <property name="color" value="green"></property>
+        <property name="shape" value="small"></property>
+        <property name="origin" value="tianjin"></property>
+    </bean>
+
+</beans>
