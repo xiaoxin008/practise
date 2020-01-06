@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="org.springframework.beans.factory.config.PropertyOverrideConfigurer">
+        <property name="locations" value="datasource.properties"></property>
+    </bean>
+
+    <bean id="datasource" class="com.xiaoxin008.spring.bean.common.Datasource">
+<!--        <property name="driverClassName" value="${datasource.driverClassName}"></property>-->
+<!--        <property name="url" value="${datasource.url}"></property>-->
+<!--        <property name="username" value="${datasource.username}"></property>-->
+<!--        <property name="password" value="${datasource.password}"></property>-->
+    </bean>
+
+</beans>

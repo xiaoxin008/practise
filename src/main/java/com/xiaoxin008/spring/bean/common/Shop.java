@@ -1,5 +1,9 @@
 package com.xiaoxin008.spring.bean.common;
 
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.BeanFactoryAware;
+import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -20,6 +24,7 @@ public class Shop {
 
     private String name = "Full-Mart";
 
+    private ObjectFactory peachFactory;
 
     public Shop() {
     }
@@ -33,7 +38,7 @@ public class Shop {
     }
 
     public Peach getPeach() {
-        return peach;
+        return (Peach) peachFactory.getObject();
     }
 
     public void setPeach(Peach peach) {
@@ -48,6 +53,10 @@ public class Shop {
         this.name = name;
     }
 
+    public void setPeachFactory(ObjectFactory peachFactory) {
+        this.peachFactory = peachFactory;
+    }
+
     @Override
     public String toString() {
         return "Shop{" +
@@ -56,4 +65,22 @@ public class Shop {
                 ", name='" + name + '\'' +
                 '}';
     }
+
+    //xml文件
+//    <bean id="shop" class="com.xiaoxin008.spring.bean.common.Shop">
+//        <property name="peachFactory" ref="peachFactory"></property>
+//    </bean>
+//
+//    <bean id="peachFactory" class="org.springframework.beans.factory.config.ObjectFactoryCreatingFactoryBean">
+//        <property name="targetBeanName">
+//            <!--  bean 的标志符名称  -->
+//            <idref bean="peach"/>
+//        </property>
+//    </bean>
+//
+//    <bean id="peach" class="com.xiaoxin008.spring.bean.common.Peach" scope="prototype">
+//        <property name="color" value="green"></property>
+//        <property name="shape" value="small"></property>
+//        <property name="origin" value="tianjin"></property>
+//    </bean>
 }
