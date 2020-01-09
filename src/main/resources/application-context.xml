@@ -6,6 +6,8 @@
 
     <import resource="application-context-datasource.xml"/>
     <import resource="application-context-editor.xml"/>
+    <import resource="application-context-processor.xml"/>
+    <import resource="application-context-resource.xml"/>
 
     <bean id="shop" class="com.xiaoxin008.spring.bean.common.Shop">
         <replaced-method name="getPeach" replacer="peachReplacer"/>

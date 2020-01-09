@@ -1,6 +1,7 @@
 package com.xiaoxin008.spring.bean.init;
 
 import com.xiaoxin008.spring.bean.common.Shop;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -12,7 +13,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class InitAnnotationBean {
 
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("application-context.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("application-context.xml");
         Shop shop = (Shop)context.getBean("shop");
         System.out.println(shop);
     }
