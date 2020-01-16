@@ -20,6 +20,7 @@ public class DynamicProxy {
     }
 
     public static void main(String[] args) {
+        System.getProperties().put("sun.misc.ProxyGenerator.saveGeneratedFiles",true);
         HttpLauncher instance = (HttpLauncher)Proxy.newProxyInstance(DynamicProxy.class.getClassLoader(), new Class[]{HttpLauncher.class},
                 ((proxy, method, arg) -> {
                     System.out.println("动态代理处理过程！！！");
