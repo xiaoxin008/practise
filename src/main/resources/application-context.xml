@@ -12,11 +12,11 @@
     <import resource="application-context-processor.xml"/>
     <import resource="application-context-resource.xml"/>
 
-    <bean id="shop" class="com.xiaoxin008.spring.bean.common.Shop">
+    <bean id="shop" class="com.xiaoxin008.spring.ioc.bean.common.Shop">
         <replaced-method name="getPeach" replacer="peachReplacer"/>
     </bean>
 
-    <bean id="peachReplacer" class="com.xiaoxin008.spring.bean.replacer.PeachProviderMethodReplacer">
+    <bean id="peachReplacer" class="com.xiaoxin008.spring.ioc.bean.replacer.PeachProviderMethodReplacer">
     </bean>
 
 </beans>

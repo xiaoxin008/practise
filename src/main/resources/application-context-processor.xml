@@ -4,8 +4,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="shopPromotion" class="com.xiaoxin008.spring.processor.bean.PromotionPostProcessor$ShopPromotion"></bean>
-    <bean id="promotionPostProcessor" class="com.xiaoxin008.spring.processor.bean.PromotionPostProcessor"></bean>
+    <bean id="shopPromotion" class="com.xiaoxin008.spring.ioc.processor.bean.PromotionPostProcessor$ShopPromotion"></bean>
+    <bean id="promotionPostProcessor" class="com.xiaoxin008.spring.ioc.processor.bean.PromotionPostProcessor"></bean>
 
 
 </beans>

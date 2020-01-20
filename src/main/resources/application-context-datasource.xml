@@ -8,7 +8,7 @@
         <property name="locations" value="classpath:datasource.properties"></property>
     </bean>
 
-    <bean id="datasource" class="com.xiaoxin008.spring.bean.common.Datasource">
+    <bean id="datasource" class="com.xiaoxin008.spring.ioc.bean.common.Datasource">
 <!--        <property name="driverClassName" value="${datasource.driverClassName}"></property>-->
 <!--        <property name="url" value="${datasource.url}"></property>-->
 <!--        <property name="username" value="${datasource.username}"></property>-->
