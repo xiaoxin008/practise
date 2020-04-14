@@ -18,6 +18,7 @@
     <maven.compiler.target>1.7</maven.compiler.target>
     <spring.version>3.2.18.RELEASE</spring.version>
     <cglib.version>2.2.2</cglib.version>
+    <commons.version>2.6</commons.version>
   </properties>
 
   <dependencies>
@@ -46,6 +47,11 @@
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
       <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-lang</groupId>
+      <artifactId>commons-lang</artifactId>
+      <version>${commons.version}</version>
     </dependency>
   </dependencies>
 
