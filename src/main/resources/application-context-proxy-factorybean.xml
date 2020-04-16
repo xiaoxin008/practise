@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+      <!--  使用ProxyFactory配置PointcutAdvisor  -->
+      <!--  因为是工厂模式，这里返回的proxyBean1已是目标的代理对象  -->
+      <bean id="proxyBean1" class="org.springframework.aop.framework.ProxyFactoryBean">
+          <property name="target">
+              <bean id="someBean" class="com.xiaoxin008.spring.aop.weaver.SomeBean"></bean>
+          </property>
+      <!--  如果使用类代理模式，加入此属性即可   -->
+<!--          <property name="proxyTargetClass" value="true"></property>-->
+          <property name="interceptorNames">
+              <list>
+                  <value>interceptor</value>
+              </list>
+          </property>
+      </bean>
+
+      <bean id="interceptor" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+          <property name="mappedName" value="doSome"></property>
+          <property name="advice">
+              <bean id="myInterceptor" class="com.xiaoxin008.spring.aop.weaver.MyProxyInterceptor"></bean>
+          </property>
+      </bean>
+
+    <!--  使用ProxyFactory配置IntroductionAdvisor  -->
+      <bean id="sb" class="com.xiaoxin008.spring.aop.weaver.SomeBean" scope="prototype"></bean>
+
+      <bean id="proxyBean2" class="org.springframework.aop.framework.ProxyFactoryBean" scope="prototype">
+          <property name="targetName">
+              <value>sb</value>
+          </property>
+          <property name="interfaces">
+              <list>
+                  <value>com.xiaoxin008.spring.aop.weaver.ISome</value>
+                  <value>com.xiaoxin008.spring.aop.weaver.IOther</value>
+              </list>
+          </property>
+          <property name="interceptorNames">
+              <list>
+                <value>introductionInterceptor</value>
+              </list>
+          </property>
+          <!--   请注意：这里使用类的代理模式代理的是SomeBean而不是OtherBean   -->
+          <property name="proxyTargetClass" value="true"></property>
+      </bean>
+
+      <bean id="introductionInterceptor" class="org.springframework.aop.support.DefaultIntroductionAdvisor">
+          <constructor-arg index="0" ref="DelegateInterceptor"></constructor-arg>
+      </bean>
+
+      <bean id="DelegateInterceptor" class="org.springframework.aop.support.DelegatePerTargetObjectIntroductionInterceptor">
+          <constructor-arg index="0" value="com.xiaoxin008.spring.aop.weaver.OtherBean"></constructor-arg>
+          <constructor-arg index="1" value="com.xiaoxin008.spring.aop.weaver.IOther"></constructor-arg>
+      </bean>
+</beans>

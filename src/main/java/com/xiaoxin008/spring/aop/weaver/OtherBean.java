@@ -8,4 +8,19 @@ package com.xiaoxin008.spring.aop.weaver;
  */
 public class OtherBean implements IOther {
 
+    private Integer count = 0;
+
+    @Override
+    public void doCount() {
+        count++;
+    }
+
+    @Override
+    public Integer getCount() {
+        return count;
+    }
+
+    public void setCount(Integer count) {
+        this.count = count;
+    }
 }
