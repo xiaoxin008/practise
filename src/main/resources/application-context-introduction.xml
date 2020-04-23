@@ -7,7 +7,7 @@
 
     <context:component-scan base-package="com.xiaoxin008.spring.*"/>
 
-    <bean id="some" class="com.xiaoxin008.spring.aop.advice.introduction.SomeBean" />
+    <bean id="some" class="com.xiaoxin008.spring.aop.SomeBean" />
     <bean id="other" class="com.xiaoxin008.spring.aop.advice.introduction.common.OtherIntroductionInterceptor" />
     <bean id="otherAdvisor" class="org.springframework.aop.support.DefaultIntroductionAdvisor">
         <constructor-arg ref="other"></constructor-arg>

@@ -1,9 +1,12 @@
 package com.xiaoxin008.spring.aop.weaver;
 
+import com.xiaoxin008.spring.aop.IOther;
+import com.xiaoxin008.spring.aop.ISome;
+import com.xiaoxin008.spring.aop.OtherBean;
+import com.xiaoxin008.spring.aop.SomeBean;
 import org.aopalliance.intercept.MethodInterceptor;
 import org.springframework.aop.framework.ProxyFactory;
 import org.springframework.aop.support.DefaultPointcutAdvisor;
-import org.springframework.aop.support.NameMatchMethodPointcut;
 
 /**
  * ProxyFactory的使用

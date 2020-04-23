@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+      <bean id="someBean" class="com.xiaoxin008.spring.aop.SomeBean"></bean>
+      <bean id="otherBean" class="com.xiaoxin008.spring.aop.OtherBean"></bean>
+      <bean id="myInterceptor" class="com.xiaoxin008.spring.aop.auto.MyMethodInterceptor"></bean>
+
+      <bean id="proxy" class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+          <property name="beanNames">
+              <list>
+                  <!--    这里可以使用通配符和可变数组传入一组名称     -->
+                  <value>*Bean</value>
+              </list>
+          </property>
+          <property name="interceptorNames">
+              <list>
+                  <!--   这里填入Advice和Advise均可   -->
+                  <value>myInterceptor</value>
+                  <value>interceptor</value>
+              </list>
+          </property>
+      </bean>
+
+      <bean id="interceptor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+          <constructor-arg index="0" ref="myInterceptor"></constructor-arg>
+      </bean>
+
+</beans>

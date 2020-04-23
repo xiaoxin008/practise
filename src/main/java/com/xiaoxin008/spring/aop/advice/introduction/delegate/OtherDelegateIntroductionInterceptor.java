@@ -1,9 +1,9 @@
 package com.xiaoxin008.spring.aop.advice.introduction.delegate;
 
-import com.xiaoxin008.spring.aop.advice.introduction.IOther;
-import com.xiaoxin008.spring.aop.advice.introduction.ISome;
-import com.xiaoxin008.spring.aop.advice.introduction.OtherBean;
-import com.xiaoxin008.spring.aop.advice.introduction.SomeBean;
+import com.xiaoxin008.spring.aop.IOther;
+import com.xiaoxin008.spring.aop.ISome;
+import com.xiaoxin008.spring.aop.OtherBean;
+import com.xiaoxin008.spring.aop.SomeBean;
 import org.springframework.aop.framework.ProxyFactory;
 import org.springframework.aop.support.DelegatingIntroductionInterceptor;
 

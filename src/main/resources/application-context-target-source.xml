@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--    <bean id="otherBean" class="com.xiaoxin008.spring.aop.OtherBean"></bean>-->
+
+<!--    <bean id="singletonTargetSource" class="org.springframework.aop.target.SingletonTargetSource">-->
+<!--        <constructor-arg index="0" ref="otherBean"></constructor-arg>-->
+<!--    </bean>-->
+
+<!--    <bean id="proxySingleton" class="org.springframework.aop.framework.ProxyFactoryBean">-->
+<!--        <property name="targetSource" ref="singletonTargetSource"></property>-->
+<!--        <property name="interceptorNames">-->
+<!--            <list>-->
+<!--                <value>myInterceptor</value>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+<!--    <bean id="myInterceptor" class="com.xiaoxin008.spring.aop.auto.MyMethodInterceptor"></bean>-->
+    <!--  注意这里设置为多例  -->
+<!--    <bean id="otherBean" class="com.xiaoxin008.spring.aop.OtherBean" scope="prototype"></bean>-->
+    <!--  使用targetBeanName指定目标对象名称而不是直接引入，多例引入beanId会有问题  -->
+<!--    <bean id="prototypeTargetSource" class="org.springframework.aop.target.PrototypeTargetSource">-->
+<!--        <property name="targetBeanName" value="otherBean"></property>-->
+<!--    </bean>-->
+
+<!--    <bean id="proxyPrototype" class="org.springframework.aop.framework.ProxyFactoryBean">-->
+    <!--  设置代理对象为多例      -->
+<!--        <property name="singleton" value="false"></property>-->
+<!--        <property name="targetSource" ref="prototypeTargetSource"></property>-->
+<!--        <property name="interceptorNames">-->
+<!--            <list>-->
+<!--                <value>interceptor</value>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+<!--    <bean id="interceptor" class="org.springframework.aop.support.DefaultPointcutAdvisor">-->
+<!--        <property name="advice" ref="myInterceptor"></property>-->
+<!--        <property name="pointcut" ref="myPointcut"></property>-->
+<!--    </bean>-->
+
+<!--    <bean id="myInterceptor" class="com.xiaoxin008.spring.aop.auto.MyMethodInterceptor"></bean>-->
+
+<!--    <bean id="myPointcut" class="org.springframework.aop.support.NameMatchMethodPointcut">-->
+<!--        <property name="mappedNames">-->
+<!--            <list>-->
+<!--                <value>doOther</value>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+<!--    <bean id="otherBean" class="com.xiaoxin008.spring.aop.OtherBean" scope="prototype"></bean>-->
+
+<!--    <bean id="commonsPool" class="org.springframework.aop.target.CommonsPoolTargetSource">-->
+<!--        <property name="targetBeanName" value="otherBean"></property>-->
+<!--        <property name="maxSize" value="2"></property>-->
+<!--    </bean>-->
+
+<!--    <bean id="commonsPoolProxy" class="org.springframework.aop.framework.ProxyFactoryBean">-->
+<!--        <property name="targetSource" ref="commonsPool"></property>-->
+<!--        <property name="singleton" value="false"></property>-->
+<!--        <property name="interceptorNames">-->
+<!--            <list>-->
+<!--                <value>myInterceptor</value>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+<!--    <bean id="myInterceptor" class="com.xiaoxin008.spring.aop.auto.MyMethodInterceptor"></bean>-->
+
+    <bean id="otherBean" class="com.xiaoxin008.spring.aop.OtherBean" scope="prototype"></bean>
+
+    <bean id="threadLocalTargetSource" class="org.springframework.aop.target.ThreadLocalTargetSource">
+        <property name="targetBeanName" value="otherBean"></property>
+    </bean>
+
+    <bean id="threadLocalProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="targetSource" ref="threadLocalTargetSource"></property>
+        <property name="interceptorNames">
+            <list>
+                <value>myInterceptor</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="myInterceptor" class="com.xiaoxin008.spring.aop.auto.MyMethodInterceptor"></bean>
+
+</beans>

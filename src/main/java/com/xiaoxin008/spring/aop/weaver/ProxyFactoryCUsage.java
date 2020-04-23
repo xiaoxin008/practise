@@ -1,5 +1,6 @@
 package com.xiaoxin008.spring.aop.weaver;
 
+import com.xiaoxin008.spring.aop.SomeBean;
 import org.aopalliance.intercept.MethodInterceptor;
 import org.springframework.aop.framework.ProxyFactory;
 import org.springframework.aop.support.DefaultPointcutAdvisor;
@@ -46,7 +47,7 @@ public class ProxyFactoryCUsage {
 //        动态代理附加属性！
 //        do something.....
 //        do playing.....
-//        class com.xiaoxin008.spring.aop.weaver.SomeBean$$EnhancerBySpringCGLIB$$7f395981 说明是基于类的代理
+//        class com.xiaoxin008.spring.aop.SomeBean$$EnhancerBySpringCGLIB$$7f395981 说明是基于类的代理
 
     }
 

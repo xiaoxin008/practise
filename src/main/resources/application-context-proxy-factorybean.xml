@@ -9,7 +9,7 @@
       <!--  因为是工厂模式，这里返回的proxyBean1已是目标的代理对象  -->
       <bean id="proxyBean1" class="org.springframework.aop.framework.ProxyFactoryBean">
           <property name="target">
-              <bean id="someBean" class="com.xiaoxin008.spring.aop.weaver.SomeBean"></bean>
+              <bean id="someBean" class="com.xiaoxin008.spring.aop.SomeBean"></bean>
           </property>
       <!--  如果使用类代理模式，加入此属性即可   -->
 <!--          <property name="proxyTargetClass" value="true"></property>-->
@@ -28,7 +28,7 @@
       </bean>
 
     <!--  使用ProxyFactory配置IntroductionAdvisor  -->
-      <bean id="sb" class="com.xiaoxin008.spring.aop.weaver.SomeBean" scope="prototype"></bean>
+      <bean id="sb" class="com.xiaoxin008.spring.aop.SomeBean" scope="prototype"></bean>
 
       <bean id="proxyBean2" class="org.springframework.aop.framework.ProxyFactoryBean" scope="prototype">
           <property name="targetName">
@@ -36,8 +36,8 @@
           </property>
           <property name="interfaces">
               <list>
-                  <value>com.xiaoxin008.spring.aop.weaver.ISome</value>
-                  <value>com.xiaoxin008.spring.aop.weaver.IOther</value>
+                  <value>com.xiaoxin008.spring.aop.ISome</value>
+                  <value>com.xiaoxin008.spring.aop.IOther</value>
               </list>
           </property>
           <property name="interceptorNames">
@@ -54,7 +54,7 @@
       </bean>
 
       <bean id="DelegateInterceptor" class="org.springframework.aop.support.DelegatePerTargetObjectIntroductionInterceptor">
-          <constructor-arg index="0" value="com.xiaoxin008.spring.aop.weaver.OtherBean"></constructor-arg>
-          <constructor-arg index="1" value="com.xiaoxin008.spring.aop.weaver.IOther"></constructor-arg>
+          <constructor-arg index="0" value="com.xiaoxin008.spring.aop.OtherBean"></constructor-arg>
+          <constructor-arg index="1" value="com.xiaoxin008.spring.aop.IOther"></constructor-arg>
       </bean>
 </beans>

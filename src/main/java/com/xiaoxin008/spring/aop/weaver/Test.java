@@ -1,6 +1,8 @@
 package com.xiaoxin008.spring.aop.weaver;
 
-import org.springframework.aop.framework.ProxyFactoryBean;
+import com.xiaoxin008.spring.aop.IOther;
+import com.xiaoxin008.spring.aop.ISome;
+import com.xiaoxin008.spring.aop.SomeBean;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -26,6 +28,7 @@ public class Test {
         other2.doCount();
         System.out.println(other1.getCount());
         System.out.println(other2.getCount());
+
     }
 
 }

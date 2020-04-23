@@ -19,6 +19,7 @@
     <spring.version>3.2.18.RELEASE</spring.version>
     <cglib.version>2.2.2</cglib.version>
     <commons.version>2.6</commons.version>
+    <commons.pool.version>1.6</commons.pool.version>
   </properties>
 
   <dependencies>
@@ -52,6 +53,11 @@
       <groupId>commons-lang</groupId>
       <artifactId>commons-lang</artifactId>
       <version>${commons.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-pool</groupId>
+      <artifactId>commons-pool</artifactId>
+      <version>${commons.pool.version}</version>
     </dependency>
   </dependencies>
 

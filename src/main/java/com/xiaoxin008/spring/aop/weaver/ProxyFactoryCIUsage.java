@@ -1,5 +1,9 @@
 package com.xiaoxin008.spring.aop.weaver;
 
+import com.xiaoxin008.spring.aop.IOther;
+import com.xiaoxin008.spring.aop.ISome;
+import com.xiaoxin008.spring.aop.OtherBean;
+import com.xiaoxin008.spring.aop.SomeBean;
 import org.aopalliance.intercept.MethodInterceptor;
 import org.springframework.aop.framework.ProxyFactory;
 import org.springframework.aop.support.DefaultPointcutAdvisor;
@@ -45,7 +49,7 @@ public class ProxyFactoryCIUsage {
 //        结果
 //        do something.....
 //        do other something...
-//        class com.xiaoxin008.spring.aop.weaver.SomeBean$$EnhancerBySpringCGLIB$$50326809 说明是基于类的代理模式
+//        class com.xiaoxin008.spring.aop.SomeBean$$EnhancerBySpringCGLIB$$50326809 说明是基于类的代理模式
     }
 
 }

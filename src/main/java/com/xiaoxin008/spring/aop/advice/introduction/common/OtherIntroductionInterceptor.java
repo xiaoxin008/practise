@@ -1,7 +1,7 @@
 package com.xiaoxin008.spring.aop.advice.introduction.common;
 
-import com.xiaoxin008.spring.aop.advice.introduction.IOther;
-import com.xiaoxin008.spring.aop.advice.introduction.ISome;
+import com.xiaoxin008.spring.aop.IOther;
+import com.xiaoxin008.spring.aop.ISome;
 import org.aopalliance.intercept.MethodInvocation;
 import org.springframework.aop.IntroductionInterceptor;
 import org.springframework.context.ApplicationContext;

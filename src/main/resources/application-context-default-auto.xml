@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+      <bean id="someBean" class="com.xiaoxin008.spring.aop.SomeBean"></bean>
+      <bean id="otherBean" class="com.xiaoxin008.spring.aop.OtherBean"></bean>
+      <bean id="anyBean" class="com.xiaoxin008.spring.aop.AnyBean"></bean>
+
+      <bean id="defaultProxy" class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator">
+          <!--    启用基于cglib的类代理模式        -->
+          <property name="optimize" value="true"></property>
+      </bean>
+
+      <bean id="myInterceptor" class="org.springframework.aop.support.DelegatingIntroductionInterceptor">
+          <constructor-arg index="0" ref="otherBean"></constructor-arg>
+      </bean>
+      <!--  DefaultAdvisorAutoProxyCreator只针对于Advisor有效          -->
+      <bean id="interceptor" class="org.springframework.aop.support.DefaultIntroductionAdvisor">
+          <constructor-arg index="0" ref="myInterceptor"></constructor-arg>
+      </bean>
+
+</beans>

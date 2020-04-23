@@ -1,12 +1,10 @@
 package com.xiaoxin008.spring.aop.advice.introduction.delegate;
 
-import com.xiaoxin008.spring.aop.advice.introduction.IOther;
-import com.xiaoxin008.spring.aop.advice.introduction.ISome;
-import com.xiaoxin008.spring.aop.advice.introduction.OtherBean;
-import com.xiaoxin008.spring.aop.advice.introduction.SomeBean;
+import com.xiaoxin008.spring.aop.IOther;
+import com.xiaoxin008.spring.aop.OtherBean;
+import com.xiaoxin008.spring.aop.SomeBean;
 import org.springframework.aop.framework.ProxyFactory;
 import org.springframework.aop.support.DelegatePerTargetObjectIntroductionInterceptor;
-import org.springframework.aop.support.DelegatingIntroductionInterceptor;
 
 /**
  * 使用DelegateIntroductionInterceptor实现引入
@@ -19,7 +17,7 @@ public class OtherDelegatePerTargetObjectIntroductionInterceptor {
     public static void main(String[] args) {
         SomeBean someBean = new SomeBean();
         ProxyFactory proxyFactory = new ProxyFactory(someBean);
-        proxyFactory.addAdvice(new DelegatePerTargetObjectIntroductionInterceptor(OtherBean.class,IOther.class));
+        proxyFactory.addAdvice(new DelegatePerTargetObjectIntroductionInterceptor(OtherBean.class, IOther.class));
         IOther proxy1 = (IOther)proxyFactory.getProxy();
         proxy1.doOther();
         proxyFactory.setTarget(new SomeBean());
