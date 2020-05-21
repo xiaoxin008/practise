@@ -20,6 +20,7 @@
     <cglib.version>2.2.2</cglib.version>
     <commons.version>2.6</commons.version>
     <commons.pool.version>1.6</commons.pool.version>
+    <aspectj.weaver.version>1.9.5</aspectj.weaver.version>
   </properties>
 
   <dependencies>
@@ -50,6 +51,11 @@
       <version>${spring.version}</version>
     </dependency>
     <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jdbc</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
       <groupId>commons-lang</groupId>
       <artifactId>commons-lang</artifactId>
       <version>${commons.version}</version>
@@ -58,6 +64,11 @@
       <groupId>commons-pool</groupId>
       <artifactId>commons-pool</artifactId>
       <version>${commons.pool.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>${aspectj.weaver.version}</version>
     </dependency>
   </dependencies>
 

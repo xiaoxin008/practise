@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+     <bean id="creator" class="org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator">
+         <property name="proxyTargetClass" value="true"></property>
+         <property name="exposeProxy" value="true"></property>
+     </bean>
+
+     <bean id="myMethod" class="com.xiaoxin008.spring.aop2.MyMethod"></bean>
+
+<!--     <bean id="myAspect" class="com.xiaoxin008.spring.aop2.ManAspect"></bean>-->
+<!--     <bean id="myAspectBefore" class="com.xiaoxin008.spring.aop2.OrderAspect"></bean>-->
+
+<!--     <bean id="man" class="com.xiaoxin008.spring.aop2.Man" scope="prototype"></bean>-->
+     <bean id="aspect" class="com.xiaoxin008.spring.aop2.OrderAspect"></bean>
+</beans>
