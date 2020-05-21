@@ -28,12 +28,12 @@ public class MyAspect {
     }
 
     public static void main(String[] args) {
-        //手动装配
-        AspectJProxyFactory proxyFactory = new AspectJProxyFactory();
-        proxyFactory.setTarget(new MyMethod());
-        proxyFactory.addAspect(MyAspect.class);
-        MyMethod proxy = (MyMethod)proxyFactory.getProxy();
-        proxy.method1();
+//        //手动装配
+//        AspectJProxyFactory proxyFactory = new AspectJProxyFactory();
+//        proxyFactory.setTarget(new MyMethod());
+//        proxyFactory.addAspect(MyAspect.class);
+//        MyMethod proxy = (MyMethod)proxyFactory.getProxy();
+//        proxy.method1();
 
         //自动装配
         ClassPathXmlApplicationContext cp = new ClassPathXmlApplicationContext("classpath:application-context-aspectJ-auto.xml");

@@ -16,5 +16,5 @@
 <!--     <bean id="myAspectBefore" class="com.xiaoxin008.spring.aop2.OrderAspect"></bean>-->
 
 <!--     <bean id="man" class="com.xiaoxin008.spring.aop2.Man" scope="prototype"></bean>-->
-     <bean id="aspect" class="com.xiaoxin008.spring.aop2.OrderAspect"></bean>
+     <bean id="aspect" class="com.xiaoxin008.spring.aop2.MyAspect"></bean>
 </beans>

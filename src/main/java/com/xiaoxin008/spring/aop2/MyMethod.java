@@ -13,8 +13,8 @@ public class MyMethod {
 
     public void method1(){
         System.out.println("method1 execute!");
-//        MyMethod proxy = (MyMethod)AopContext.currentProxy();
-//        proxy.method2();
+        MyMethod proxy = (MyMethod)AopContext.currentProxy();
+        proxy.method2();
     }
 
     public void method2(){
