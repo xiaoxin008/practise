@@ -16,7 +16,42 @@
         <replaced-method name="getPeach" replacer="peachReplacer"/>
     </bean>
 
-    <bean id="peachReplacer" class="com.xiaoxin008.spring.ioc.bean.replacer.PeachProviderMethodReplacer">
+    <bean id="peachReplacer" class="com.xiaoxin008.spring.ioc.bean.replacer.PeachProviderMethodReplacer"></bean>
+
+    <bean id="mySqlDataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
+        <property name="driverClassName" value="${mySqlDataSource.driverClassName}"></property>
+        <property name="url" value="{mySqlDataSource.url}"></property>
+        <property name="username" value="${mySqlDataSource.username}"></property>
+        <property name="password" value="${mySqlDataSource.password}"></property>
     </bean>
+
+    <bean id="mySqlJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="mySqlDataSource"></property>
+    </bean>
+
+    <bean id="mySqlIncrementer" class="org.springframework.jdbc.support.incrementer.MySQLMaxValueIncrementer">
+        <property name="dataSource" ref="mySqlDataSource"></property>
+        <property name="cacheSize" value="5"></property>
+        <property name="incrementerName" value="fx_news_key"></property>
+        <property name="columnName" value="value"></property>
+    </bean>
+
+    <bean id="oracleDataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
+        <property name="driverClassName" value="${oracleDataSource.driverClassName}"></property>
+        <property name="url" value="${oracleDataSource.url}"></property>
+        <property name="username" value="${oracleDataSource.username}"></property>
+        <property name="password" value="${oracleDataSource.password}"></property>
+    </bean>
+
+    <bean id="oracleJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="oracleDataSource"></property>
+    </bean>
+
+    <bean id="oracleIncrementer" class="org.springframework.jdbc.support.incrementer.OracleSequenceMaxValueIncrementer">
+        <property name="dataSource" ref="oracleDataSource"></property>
+        <property name="incrementerName" value="YH_ZENTAO_DMC_SYSTEM_SEQ"></property>
+    </bean>
+
+    <bean id="oracleLobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler"></bean>
 
 </beans>

@@ -21,6 +21,10 @@
     <commons.version>2.6</commons.version>
     <commons.pool.version>1.6</commons.pool.version>
     <aspectj.weaver.version>1.9.5</aspectj.weaver.version>
+    <druid.version>1.1.10</druid.version>
+    <mysql.connector.version>5.1.47</mysql.connector.version>
+    <lombok.version>1.18.12</lombok.version>
+    <oracle.jdbc.version>10.2.0.3.0</oracle.jdbc.version>
   </properties>
 
   <dependencies>
@@ -70,6 +74,28 @@
       <artifactId>aspectjweaver</artifactId>
       <version>${aspectj.weaver.version}</version>
     </dependency>
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>druid</artifactId>
+      <version>${druid.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>${mysql.connector.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.oracle</groupId>
+      <artifactId>ojdbc14</artifactId>
+      <version>${oracle.jdbc.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>${lombok.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
   </dependencies>
 
   <build>
