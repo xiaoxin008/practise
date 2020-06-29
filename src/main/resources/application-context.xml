@@ -7,6 +7,8 @@
 
     <context:component-scan base-package="com.xiaoxin008.spring.*"/>
 
+    <context:property-placeholder location="classpath:datasource.properties" system-properties-mode="NEVER"/>
+
     <import resource="application-context-datasource.xml"/>
     <import resource="application-context-editor.xml"/>
     <import resource="application-context-processor.xml"/>
@@ -27,6 +29,10 @@
 
     <bean id="mySqlJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource" ref="mySqlDataSource"></property>
+    </bean>
+
+    <bean id="mySqlNameParameterJdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+        <constructor-arg index="0" ref="mySqlDataSource"></constructor-arg>
     </bean>
 
     <bean id="mySqlIncrementer" class="org.springframework.jdbc.support.incrementer.MySQLMaxValueIncrementer">
@@ -53,5 +59,27 @@
     </bean>
 
     <bean id="oracleLobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler"></bean>
+
+    <bean id="mysqlDriver" class="com.mysql.jdbc.Driver"></bean>
+
+    <bean id="myDataSource" class="com.xiaoxin008.spring.jdbc.datasource.MyDataSource">
+        <property name="driver" ref="mysqlDriver"></property>
+        <property name="url" value="jdbc:mysql://localhost:3306/crm"></property>
+        <property name="connectionProperties">
+            <props>
+                <prop key="user">root</prop>
+                <prop key="password">admin</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="myRouterDataSource" class="com.xiaoxin008.spring.jdbc.datasource.MyRouterDataSource">
+        <property name="targetDataSources">
+            <map>
+                <entry key="mysql" value-ref="mySqlDataSource"></entry>
+                <entry key="oracle" value-ref="oracleDataSource"></entry>
+            </map>
+        </property>
+    </bean>
 
 </beans>
