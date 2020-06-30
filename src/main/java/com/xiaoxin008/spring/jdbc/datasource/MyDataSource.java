@@ -27,7 +27,7 @@ public class MyDataSource extends AbstractDataSource {
 
     private String url;
 
-    private Properties connectionProperties;
+    private Properties connectionProperties = new Properties();
 
     @Override
     public Connection getConnection() throws SQLException {
