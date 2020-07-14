@@ -54,7 +54,7 @@ public class MySqlJdbcTemplateLob {
         Map<String, Object> stringObjectMap = mySqlJdbcTemplateLob.queryLob();
         byte[] news_body = (byte[])stringObjectMap.get("news_body");
         try {
-            OutputStream outputStream = new FileOutputStream("C:\\Users\\WFX\\Desktop\\test.txt");
+            @Cleanup OutputStream outputStream = new FileOutputStream("C:\\Users\\WFX\\Desktop\\test.txt");
             outputStream.write(news_body);
         } catch (Exception e) {
             e.printStackTrace();

@@ -57,7 +57,7 @@ public class OracleJdbcTemplateLob {
     public void queryLob(){
         byte[] b = oracleJdbcTemplate.queryForObject(" SELECT * FROM YH_ZENTAO_DMC_SYSTEM WHERE ID = ?",new Object[]{52L} ,(rs, i) -> oracleLobHandler.getBlobAsBytes(rs,9));
         try {
-            OutputStream outputStream = new FileOutputStream("C:\\Users\\WFX\\Desktop\\test.txt");
+            @Cleanup OutputStream outputStream = new FileOutputStream("C:\\Users\\WFX\\Desktop\\test.txt");
             outputStream.write(b);
         } catch (Exception e) {
             e.printStackTrace();
