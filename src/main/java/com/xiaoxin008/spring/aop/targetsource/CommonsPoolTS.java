@@ -1,11 +1,5 @@
 package com.xiaoxin008.spring.aop.targetsource;
 
-import com.xiaoxin008.spring.aop.IOther;
-import org.springframework.aop.target.CommonsPoolTargetSource;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import java.util.stream.IntStream;
-
 /**
  * 测试CommonsPoolTargetSource功能
  *
@@ -35,18 +29,18 @@ public class CommonsPoolTS {
 //
 //    <bean id="myInterceptor" class="com.xiaoxin008.spring.aop.auto.MyMethodInterceptor"></bean>
 
-        ClassPathXmlApplicationContext cp = new ClassPathXmlApplicationContext("classpath:application-context-target-source.xml");
-        CommonsPoolTargetSource commonsPool = (CommonsPoolTargetSource)cp.getBean("commonsPool");
-        int activeCount = commonsPool.getActiveCount();
-        System.out.println(activeCount);
-        IntStream.rangeClosed(0,100).forEach(i -> {
-            Thread thread = new Thread(() -> {
-                IOther commonsPoolProxy = (IOther)cp.getBean("commonsPoolProxy");
-                commonsPoolProxy.doOther();
-                System.out.println(commonsPoolProxy);
-            });
-            thread.start();
-        });
+//        ClassPathXmlApplicationContext cp = new ClassPathXmlApplicationContext("classpath:application-context-target-source.xml");
+//        CommonsPoolTargetSource commonsPool = (CommonsPoolTargetSource)cp.getBean("commonsPool");
+//        int activeCount = commonsPool.getActiveCount();
+//        System.out.println(activeCount);
+//        IntStream.rangeClosed(0,100).forEach(i -> {
+//            Thread thread = new Thread(() -> {
+//                IOther commonsPoolProxy = (IOther)cp.getBean("commonsPoolProxy");
+//                commonsPoolProxy.doOther();
+//                System.out.println(commonsPoolProxy);
+//            });
+//            thread.start();
+//        });
 
 //        结果：在池中只存在两个对象
 //        com.xiaoxin008.spring.aop.OtherBean@6bf473fb

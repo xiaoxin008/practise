@@ -1,11 +1,5 @@
 package com.xiaoxin008.spring.aop.targetsource;
 
-import com.xiaoxin008.spring.aop.IOther;
-import org.springframework.aop.target.CommonsPoolTargetSource;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import java.util.stream.IntStream;
-
 /**
  * 测试ThreadLocalTargetSource功能
  *
@@ -33,15 +27,15 @@ public class ThreadLocalTS {
 //
 //    <bean id="myInterceptor" class="com.xiaoxin008.spring.aop.auto.MyMethodInterceptor"></bean>
 
-        ClassPathXmlApplicationContext cp = new ClassPathXmlApplicationContext("classpath:application-context-target-source.xml");
-        IntStream.rangeClosed(0,100).forEach(i -> {
-            Thread thread = new Thread(() -> {
-                IOther threadLocalProxy = (IOther)cp.getBean("threadLocalProxy");
-                threadLocalProxy.doOther();
-                System.out.println(threadLocalProxy);
-            });
-            thread.start();
-        });
+//        ClassPathXmlApplicationContext cp = new ClassPathXmlApplicationContext("classpath:application-context-target-source.xml");
+//        IntStream.rangeClosed(0,100).forEach(i -> {
+//            Thread thread = new Thread(() -> {
+//                IOther threadLocalProxy = (IOther)cp.getBean("threadLocalProxy");
+//                threadLocalProxy.doOther();
+//                System.out.println(threadLocalProxy);
+//            });
+//            thread.start();
+//        });
 
 //        结果：每一个线程的代理对象都是独立的
 //        com.xiaoxin008.spring.aop.OtherBean@2cfbb6ff
