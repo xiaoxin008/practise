@@ -36,9 +36,9 @@ public class DirectInitBean {
     public static BeanFactory bindViaCode(BeanDefinitionRegistry registry){
         //首先针对相应的业务对象构造与其相对应的BeanDefinition
         //使用了RootBeanDefinition作为BeanDefinition的实现类
-        AbstractBeanDefinition shopBean = new RootBeanDefinition(Shop.class, true);
-        AbstractBeanDefinition appleBean = new RootBeanDefinition(Apple.class, true);
-        AbstractBeanDefinition peachBean = new RootBeanDefinition(Peach.class, true);
+        AbstractBeanDefinition shopBean = new RootBeanDefinition(Shop.class);
+        AbstractBeanDefinition appleBean = new RootBeanDefinition(Apple.class);
+        AbstractBeanDefinition peachBean = new RootBeanDefinition(Peach.class);
 
         //构造完成后，将这些BeanDefinition注册到通过方法参数传进来的BeanDefinitionRegistry中
         registry.registerBeanDefinition("shop",shopBean);
