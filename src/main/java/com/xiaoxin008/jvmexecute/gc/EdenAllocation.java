@@ -1,5 +1,7 @@
 package com.xiaoxin008.jvmexecute.gc;
 
+import java.io.Serializable;
+
 /**
  * 测试新对象优先分配在Eden区
  * VM Args: -Xms20M -Xmx20M -Xmn10M -XX:+PrintGCDetails -XX:SurvivorRatio=8 -XX:+UseSerialGC
@@ -7,7 +9,7 @@ package com.xiaoxin008.jvmexecute.gc;
  * @author xiaoxin008(313595055 @ qq.com)
  * @since 1.0.0
  */
-public class EdenAllocation {
+public class EdenAllocation implements Serializable {
 
     public static int _1MB = 1024 * 1024;
 
