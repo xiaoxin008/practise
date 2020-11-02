@@ -30,9 +30,9 @@ public class CustomerInvoke {
         @Override
         void thinking(){
             try {
-                MethodType mt = MethodType.methodType(void.class);
-                MethodHandle mh = lookup().findSpecial(GrandFather.class,"thinking",mt,getClass());
-                mh.invoke(this);
+                MethodType mt=MethodType.methodType(void.class);
+                MethodHandle mh=lookup().findVirtual(GrandFather.class,"thinking",mt).bindTo(new CustomerInvoke().new GrandFather());
+                mh.invokeExact();
             } catch (Throwable e) {
                 e.printStackTrace();
             }
