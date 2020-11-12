@@ -25,6 +25,8 @@
     <oracle.jdbc.version>10.2.0.3.0</oracle.jdbc.version>
     <hibernate.version>3.6.10.Final</hibernate.version>
     <mybatis.version>3.2.0</mybatis.version>
+    <jedis.version>3.3.0</jedis.version>
+    <fastjson.version>1.2.73</fastjson.version>
   </properties>
 
   <dependencyManagement>
@@ -182,6 +184,16 @@
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-core</artifactId>
       <version>${hibernate.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>redis.clients</groupId>
+      <artifactId>jedis</artifactId>
+      <version>${jedis.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+      <version>${fastjson.version}</version>
     </dependency>
   </dependencies>
 
