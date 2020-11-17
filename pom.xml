@@ -27,6 +27,7 @@
     <mybatis.version>3.2.0</mybatis.version>
     <jedis.version>3.3.0</jedis.version>
     <fastjson.version>1.2.73</fastjson.version>
+    <redisson.version>3.13.6</redisson.version>
   </properties>
 
   <dependencyManagement>
@@ -194,6 +195,11 @@
       <groupId>com.alibaba</groupId>
       <artifactId>fastjson</artifactId>
       <version>${fastjson.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.redisson</groupId>
+      <artifactId>redisson</artifactId>
+      <version>${redisson.version}</version>
     </dependency>
   </dependencies>
 
