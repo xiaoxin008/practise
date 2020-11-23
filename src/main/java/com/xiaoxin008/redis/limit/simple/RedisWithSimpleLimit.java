@@ -1,4 +1,4 @@
-package com.xiaoxin008.redis.limit;
+package com.xiaoxin008.redis.limit.simple;
 
 import com.xiaoxin008.redis.base.JedisContainer;
 import redis.clients.jedis.Jedis;

@@ -1,4 +1,4 @@
-package com.xiaoxin008.redis.funnel;
+package com.xiaoxin008.redis.limit.funnel;
 
 import java.util.HashMap;
 import java.util.Map;
