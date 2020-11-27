@@ -1,0 +1,74 @@
+version: '3'
+services:
+  redis01:
+    image: docker.io/redis
+    container_name: redis01
+    restart: always
+    ports:
+    - 6379:6379
+    volumes:
+    - /home/uc/redis-cluster/redis01/data:/data
+    - /home/uc/redis-cluster/redis01/redis.conf:/user/local/etc/redis/redis.conf
+    command: redis-server /user/local/etc/redis/redis.conf
+    privileged: true
+    network_mode: "host"
+  redis02:
+    image: docker.io/redis
+    container_name: redis02
+    restart: always
+    ports:
+      - 6380:6380
+    volumes:
+      - /home/uc/redis-cluster/redis02/data:/data
+      - /home/uc/redis-cluster/redis02/redis.conf:/user/local/etc/redis/redis.conf
+    command: redis-server /user/local/etc/redis/redis.conf
+    privileged: true
+    network_mode: "host"
+  redis03:
+    image: docker.io/redis
+    container_name: redis03
+    restart: always
+    ports:
+      - 6381:6381
+    volumes:
+      - /home/uc/redis-cluster/redis03/data:/data
+      - /home/uc/redis-cluster/redis03/redis.conf:/user/local/etc/redis/redis.conf
+    command: redis-server /user/local/etc/redis/redis.conf
+    privileged: true
+    network_mode: "host"
+  redis04:
+    image: docker.io/redis
+    container_name: redis04
+    restart: always
+    ports:
+      - 6382:6382
+    volumes:
+      - /home/uc/redis-cluster/redis04/data:/data
+      - /home/uc/redis-cluster/redis04/redis.conf:/user/local/etc/redis/redis.conf
+    command: redis-server /user/local/etc/redis/redis.conf
+    privileged: true
+    network_mode: "host"
+  redis05:
+    image: docker.io/redis
+    container_name: redis05
+    restart: always
+    ports:
+      - 6383:6383
+    volumes:
+      - /home/uc/redis-cluster/redis05/data:/data
+      - /home/uc/redis-cluster/redis05/redis.conf:/user/local/etc/redis/redis.conf
+    command: redis-server /user/local/etc/redis/redis.conf
+    privileged: true
+    network_mode: "host"
+  redis06:
+    image: docker.io/redis
+    container_name: redis06
+    restart: always
+    ports:
+      - 6384:6384
+    volumes:
+      - /home/uc/redis-cluster/redis06/data:/data
+      - /home/uc/redis-cluster/redis06/redis.conf:/user/local/etc/redis/redis.conf
+    command: redis-server /user/local/etc/redis/redis.conf
+    privileged: true
+    network_mode: "host"

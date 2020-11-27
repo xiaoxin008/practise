@@ -1,0 +1,60 @@
+version: '3'
+services:
+  master-6379:
+    image: docker.io/redis
+    container_name: redis-master-6379
+    restart: always
+    ports:
+    - 6379:6379
+    volumes:
+    - /data/redis/data/6379:/data
+    - /data/redis/config/master-6379/redis-master.conf:/usr/local/etc/redis/redis.conf
+    command: redis-server /usr/local/etc/redis/redis.conf
+    network_mode: "host"
+  slaver-6380:
+    image: docker.io/redis
+    container_name: redis-slaver-6380
+    restart: always
+    ports:
+    - 6380:6380
+    volumes:
+    - /data/redis/data/6380:/data
+    - /data/redis/config/slaver-6380/redis-slaver.conf:/usr/local/etc/redis/redis.conf
+    command: redis-server /usr/local/etc/redis/redis.conf
+    network_mode: "host"
+  slaver-6381:
+    image: docker.io/redis
+    container_name: redis-slaver-6381
+    restart: always
+    ports:
+    - 6381:6381
+    volumes:
+    - /data/redis/data/6381:/data
+    - /data/redis/config/slaver-6381/redis-slaver.conf:/usr/local/etc/redis/redis.conf
+    command: redis-server /usr/local/etc/redis/redis.conf
+    network_mode: "host"
+  sentinel-26379:
+    image: docker.io/redis
+    container_name: redis-sentinel-26379
+    restart: always
+    ports:
+    - 26379:26379
+    volumes:
+    - /data/redis/config/sentinel-26379/sentinel-26379.conf:/usr/local/etc/redis/sentinel.conf
+    command: redis-sentinel /usr/local/etc/redis/sentinel.conf
+    network_mode: "host"
+  sentinel-26380:
+    image: docker.io/redis
+    container_name: redis-sentinel-26380
+    restart: always
+    ports:
+    - 26380:26380
+    volumes:
+    - /data/redis/config/sentinel-26380/sentinel-26380.conf:/usr/local/etc/redis/sentinel.conf
+    command: redis-sentinel /usr/local/etc/redis/sentinel.conf
+    network_mode: "host"
+
+
+
+
+
