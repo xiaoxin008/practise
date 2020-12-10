@@ -1,19 +1,5 @@
 version: '3'
 services:
-  #  redis服务
-  redis-server:
-    image: docker.io/redis
-    container_name: redis-server-01
-    restart: always
-    volumes:
-      - /home/uc/redis-server/redis.conf:/usr/local/etc/redis/redis.conf
-      - /home/uc/redis-server/data/:/data
-    ports:
-      - 6379:6379
-    command: redis-server /usr/local/etc/redis/redis.conf
-    privileged: true
-    network_mode: "host"
-
   #   canal服务
   canal-server:
     image: canal/canal-server
